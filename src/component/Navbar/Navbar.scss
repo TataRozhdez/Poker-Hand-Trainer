@@ -1,0 +1,13 @@
+.Navbar {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: center / contain url(../../resources/img/navbar.jpg);
+  height: 10vh;
+  border-bottom: 0.347vw solid #757575;
+  img {
+    width: 2.083vw;
+    height: 2.083vw;
+  }
+}

@@ -1,0 +1,10 @@
+.MainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: center / cover no-repeat url(../../resources/img/main.jpg);
+  width: 72.222vw;
+  height: 89.9vh;
+  position: relative;
+}
