@@ -6,8 +6,31 @@
   background: center / contain url(../../resources/img/navbar.jpg);
   height: 10vh;
   border-bottom: 0.347vw solid #757575;
-  img {
-    width: 2.083vw;
-    height: 2.083vw;
+  color: #f5f5f5;
+  box-shadow: inset -1px 0px 17px 0px rgba(50, 50, 50, 0.75);
+
+  h1 {
+    cursor: default;
+  }
+  div {
+    display: flex;
+
+    img, .info {
+      width: 2.083vw;
+      height: 2.083vw;
+    }
+    img:hover, .info:hover {
+      transform: scaleX(1.05);
+      box-shadow: 0px 0px 24px -7px rgba(255, 255, 255, 1);
+    }
+    .info {
+      color: #a5a5a5;
+      border: 0.208vw solid #a5a5a5;
+      border-radius: 50%;
+      margin-right: 1.389vw;
+      padding: 0.139vw 0.417vw;
+      font-weight: 800;
+      font-size: 1.111vw;
+    }
   }
 }

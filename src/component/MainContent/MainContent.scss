@@ -2,9 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   background: center / cover no-repeat url(../../resources/img/main.jpg);
   width: 72.222vw;
   height: 89.9vh;
   position: relative;
+  box-shadow: inset -1px 0px 17px 0px rgba(50, 50, 50, 0.75);
+
+  .card-line {
+    display: flex;
+    flex-direction: row;
+    padding: 2.083vw;
+  }
 }

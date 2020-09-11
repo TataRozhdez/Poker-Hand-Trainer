@@ -1,14 +1,13 @@
-// @import './variables';
-// @import './fonts/fonts';
+@import './resources/fonts/fonts';
 
 * {
   box-sizing: border-box;
 }
 
 html {
-// font-size: $font-size;
-// font-family: 'Kiona-Regular', 'Callstories', 'Roboto', 'Roboto-Italic', sans-serif;
-color: #fff;
+  font-size: 16px;
+  font-family: 'Gayathri', 'LexendPeta', sans-serif;
+  color: #fff;
 }
 h1,
 h2,
@@ -20,7 +19,6 @@ body {
 }
 
 body {
-  // background-color: $bg;
   overflow-x: hidden;
 }
 
@@ -34,5 +32,11 @@ a {
 
 .app {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
+}
+.title {
+  color: #fff;
+  font-size: 3.125vw;
+  font-family: 'LexendPeta';
+  text-shadow: 3px 1px 0px rgba(150, 150, 150, 1);
 }
