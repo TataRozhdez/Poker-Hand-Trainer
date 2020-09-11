@@ -7,27 +7,34 @@ export const Card = () => {
   const [loadCard, setLoadCard] = useState(true)
   const [card, setCard] = useState()
 
-  useEffect(() => {
-    fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
+  const getDeck = async () => {
+    const deck = await fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
       .then((res) => res.json())
-      .then((result) => {
-        setDeck(result);
-        setLoading(false);
+      .then(result => {
+        setDeck(deck)
+        console.log('1')
       })
       .catch((error) => console.log(error))
-  }, []);
 
-  if (!loading && !card && deck) {
-    fetch(`https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=5`)
-      .then((res) => res.json())
-      .then((result) => {
-        setCard(result)
-        setLoadCard(false)
-      })
-      .catch((error) => console.log(error))
   }
 
-  console.log(deck.deck_id)
+  if (loading) {
+    getDeck()
+    setLoading(false)
+    console.log(deck)
+  }
+
+  // if (!loading && !card && deck) {
+  //   fetch(`https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=5`)
+  //     .then((res) => res.json())
+  //     .then((result) => {
+  //       setCard(result)
+  //       setLoadCard(false)
+  //     })
+  //     .catch((error) => console.log(error))
+  // }
+
+  // console.log(deck.deck_id)
 
   // if (!loadCard) {
   //   console.log('card', card)
