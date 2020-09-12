@@ -1,28 +1,41 @@
 import React from 'react'
-import './Sidebar.scss'
-
 import playImg from '../../resources/img/play.png'
 import stopImg from '../../resources/img/stop.png'
+import './Sidebar.scss'
 
-export const Sidebar = () => {
+export const Sidebar = ({ getCards, loading, start, stopGame }) => {
+
   return (
     <div className='Sidebar'>
       <h2>&diams; Poker Hand Ranking &diams;</h2>
-      <a href='#!'>Royal Flush</a>
-      <a href='#!'>Straight Flush</a>
-      <a href='#!'>Four of a Kind</a>
-      <a href='#!'>Full House</a>
-      <a href='#!'>Flush</a>
-      <a href='#!'>Straight</a>
-      <a href='#!'>Three of a Kind</a>
-      <a href='#!'>Two Pair</a>
-      <a href='#!'>Pair</a>
-      <a href='#!'>High Card</a>
-
-      <div className='play-btn'>
-        <button><img src={playImg} alt='play'/></button>
-        <button disabled><img src={stopImg} alt='stop'/></button>
-      </div>
+      <button className='btn-option'>Royal Flush</button>
+      <button className='btn-option'>Straight Flush</button>
+      <button className='btn-option'>Four of a Kind</button>
+      <button className='btn-option'>Full House</button>
+      <button className='btn-option'>Flush</button>
+      <button className='btn-option'>Straight</button>
+      <button className='btn-option'>Three of a Kind</button>
+      <button className='btn-option'>Two Pair</button>
+      <button className='btn-option'>Pair</button>
+      <button className='btn-option'>High Card</button>
+      {
+        !loading && (
+          <div className='play-btn'>
+            <button
+              onClick={() => getCards()}
+              disabled={start}
+            >
+              <img src={playImg} alt='play' />
+            </button>
+            <button
+              onClick={() => stopGame()}
+              disabled={!start}
+            >
+              <img src={stopImg} alt='stop' />
+            </button>
+          </div>
+        )
+      }
     </div>
   )
 }

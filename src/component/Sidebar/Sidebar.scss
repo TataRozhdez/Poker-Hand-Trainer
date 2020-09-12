@@ -12,20 +12,22 @@
     margin-bottom: 0.694vw;
     cursor: default;
   }
-  a {
+  .btn-option {
     font-size: 1.736vw;
     border: 1px solid #fff;
     border-radius: 2.778vw;
-    height: 2.292vw;   
-    margin-bottom: 0.694vw;
-    padding-top: 0.347vw;
+    height: 3.125vw;   
+    margin-bottom: 1.181vw;
     color: #fff;
+    outline: none;
+    background: none;
   }
-  a:hover {
+  .btn-option:hover {
     background-color: #681516;
-    transition: background-color .5s;
+    transition: .3s;
     transform: scaleX(1.05);
     box-shadow: 0px 0px 24px -7px rgba(255,255,255,1);
+    cursor: pointer;
   }
   .play-btn {
     display: flex;
@@ -54,6 +56,7 @@
       background: #846969;
     }
     button:hover {
+      transition: .3s;
       transform: scaleX(1.05);
       box-shadow: 0px 0px 24px -7px rgba(255,255,255,1);
     }

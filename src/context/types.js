@@ -1,0 +1,6 @@
+export const GET_DECK = 'GET_DECK'
+export const GET_CARDS = 'GET_CARDS'
+export const SAVE_RESULT = 'SAVE_RESULT'
+export const STOP_GAME = 'STOP_GAME'
+export const CONNECT_ERROR = 'CONNECT_ERROR'
+export const WRONG_ANSWER = 'WRONG_ANSWER'
