@@ -3,7 +3,7 @@ import playImg from '../../resources/img/play.png'
 import stopImg from '../../resources/img/stop.png'
 import './Sidebar.scss'
 
-export const Sidebar = ({ getCards, loading, start, chooseAnswer, stopGame }) => {
+export const Sidebar = ({ getCards, loading, start, handleChooseAnswer, stopGame }) => {
 
   return (
     <div className='Sidebar'>
@@ -11,19 +11,53 @@ export const Sidebar = ({ getCards, loading, start, chooseAnswer, stopGame }) =>
       <button
         className='btn-option'
         id='Royal Flush'
-        onClick={chooseAnswer}
-      >
-        Royal Flush
-        </button>
-      <button className='btn-option'>Straight Flush</button>
-      <button className='btn-option'>Four of a Kind</button>
-      <button className='btn-option'>Full House</button>
-      <button className='btn-option'>Flush</button>
-      <button className='btn-option'>Straight</button>
-      <button className='btn-option'>Three of a Kind</button>
-      <button className='btn-option'>Two Pair</button>
-      <button className='btn-option'>Pair</button>
-      <button className='btn-option'>High Card</button>
+        onClick={handleChooseAnswer}
+      >Royal Flush</button>
+      <button
+        className='btn-option'
+        id='Straight Flush'
+        onClick={handleChooseAnswer}
+      >Straight Flush</button>
+      <button
+        className='btn-option'
+        id='Four of a Kind'
+        onClick={handleChooseAnswer}
+      >Four of a Kind</button>
+      <button
+        className='btn-option'
+        id='Full House'
+        onClick={handleChooseAnswer}
+      >Full House</button>
+      <button
+        className='btn-option'
+        id='Flush'
+        onClick={handleChooseAnswer}
+      >Flush</button>
+      <button
+        className='btn-option'
+        id='Straight'
+        onClick={handleChooseAnswer}
+      >Straight</button>
+      <button
+        className='btn-option'
+        id='Three of a Kind'
+        onClick={handleChooseAnswer}
+      >Three of a Kind</button>
+      <button
+        className='btn-option'
+        id='Two Pair'
+        onClick={handleChooseAnswer}
+      >Two Pair</button>
+      <button
+        className='btn-option'
+        id='Pair'
+        onClick={handleChooseAnswer}
+      >Pair</button>
+      <button
+        className='btn-option'
+        id='High Card'
+        onClick={handleChooseAnswer}
+      >High Card</button>
       {
         !loading && (
           <div className='play-btn'>

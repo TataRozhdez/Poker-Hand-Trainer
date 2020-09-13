@@ -16,7 +16,9 @@ export const App = () => {
     getDeck,
     cards,
     gameStarted,
-    chooseAnswer,
+    handleChooseAnswer,
+    selected,
+    setTime,
     stopGame
   } = deckContext
 
@@ -25,14 +27,27 @@ export const App = () => {
     // eslint-disable-next-line
   }, [])
 
-  if (gameStarted) {
-    console.log(deckContext)
-    
-    const renderingHand = [] 
-    cards.cards.map(i => renderingHand.push(i.code))
-    const hand = Hand.solve(renderingHand)
+  if (gameStarted) { 
+    // const timeStart = Date.now()  
+    // setTime(timeStart)
 
-    console.log('1', hand.name)
+    const renderingHand = []
+    const hand = Hand.solve(renderingHand)
+    
+    cards.cards.map(i => renderingHand.push(i.code))
+
+    console.log('Hand:', hand.name)
+    // console.log('state', deckContext)
+
+    // if (hand.name === selected) {
+    //   const timeEnd = Date.now - timeStart
+    //   setTime(timeEnd)
+
+    //   console.log('Success', selected)
+    //   console.log('state', deckContext)
+
+    //   // console.clear()
+    // }
   }
 
   return (
@@ -50,7 +65,7 @@ export const App = () => {
           loading={loading}
           start={gameStarted}
           stopGame={stopGame}
-          chooseAnswer={chooseAnswer}
+          handleChooseAnswer={handleChooseAnswer}
         />
       </div>
     </div>

@@ -4,6 +4,7 @@ import {
   SET_RESULT,
   STOP_GAME,
   CONNECT_ERROR,
+  TIMER,
   // WRONG_ANSWER
 } from '../types'
 
@@ -19,6 +20,7 @@ export default (state, action) => {
       return {
         ...state,
         gameStarted: true,
+        selected: null,
         cards: action.payload,
       }
     case STOP_GAME: 
@@ -26,12 +28,20 @@ export default (state, action) => {
         ...state,
         gameStarted: false,
         cards: null,
+        selected: null,
         results: null
       }
     case SET_RESULT: 
       return {
         ...state,
-        results: action.payload
+        cards: null,
+        selected: action.payload
+      }
+    case TIMER:
+      return {
+        ...state,
+        // selected: null,
+        timer: action.payload
       }
     case CONNECT_ERROR:
       return {

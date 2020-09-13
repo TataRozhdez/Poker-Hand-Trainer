@@ -8,6 +8,7 @@ import {
   SET_RESULT,
   STOP_GAME,
   CONNECT_ERROR,
+  TIMER,
   // WRONG_ANSWER
 } from '../types'
 
@@ -17,6 +18,8 @@ const DeckState = props => {
     deck: null,
     gameStarted: false,
     cards: null,
+    selected: null,
+    timer: null,
     results: null,
     error: null
   }
@@ -75,11 +78,20 @@ const DeckState = props => {
   }
 
   // Choose answer
-  const chooseAnswer = item => {
-    console.log(item)
+  const handleChooseAnswer = (event) => {
+    console.log(event.target.id)
     dispatch({
       type: SET_RESULT,
-      payload: item.target
+      payload: event.target.id
+    })
+  }
+
+  // Timer
+  const setTime = time => {
+    console.log('constextTime', time)
+    dispatch({
+      type: TIMER,
+      payload: time
     })
   }
 
@@ -92,10 +104,13 @@ const DeckState = props => {
         deck: state.deck,
         cards: state.cards,
         results: state.results,
+        selected: state.selected,
+        timer: state.timer,
         getDeck,
         getCards,
         stopGame,
-        chooseAnswer
+        handleChooseAnswer,
+        setTime
       }}
     >
       {props.children}
