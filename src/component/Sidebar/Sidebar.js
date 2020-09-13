@@ -3,12 +3,18 @@ import playImg from '../../resources/img/play.png'
 import stopImg from '../../resources/img/stop.png'
 import './Sidebar.scss'
 
-export const Sidebar = ({ getCards, loading, start, stopGame }) => {
+export const Sidebar = ({ getCards, loading, start, chooseAnswer, stopGame }) => {
 
   return (
     <div className='Sidebar'>
       <h2>&diams; Poker Hand Ranking &diams;</h2>
-      <button className='btn-option'>Royal Flush</button>
+      <button
+        className='btn-option'
+        id='Royal Flush'
+        onClick={chooseAnswer}
+      >
+        Royal Flush
+        </button>
       <button className='btn-option'>Straight Flush</button>
       <button className='btn-option'>Four of a Kind</button>
       <button className='btn-option'>Full House</button>

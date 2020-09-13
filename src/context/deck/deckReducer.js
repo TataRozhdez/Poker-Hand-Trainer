@@ -1,10 +1,10 @@
 import {
   GET_DECK,
   GET_CARDS,
-  // SAVE_RESULT,
+  SET_RESULT,
   STOP_GAME,
   CONNECT_ERROR,
-  WRONG_ANSWER
+  // WRONG_ANSWER
 } from '../types'
 
 export default (state, action) => {
@@ -19,7 +19,7 @@ export default (state, action) => {
       return {
         ...state,
         gameStarted: true,
-        cards: action.payload
+        cards: action.payload,
       }
     case STOP_GAME: 
       return {
@@ -27,6 +27,11 @@ export default (state, action) => {
         gameStarted: false,
         cards: null,
         results: null
+      }
+    case SET_RESULT: 
+      return {
+        ...state,
+        results: action.payload
       }
     case CONNECT_ERROR:
       return {

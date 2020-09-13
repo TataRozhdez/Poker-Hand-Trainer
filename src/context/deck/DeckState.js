@@ -5,10 +5,10 @@ import deckReducer from './deckReducer'
 import {
   GET_DECK,
   GET_CARDS,
-  // SAVE_RESULT,
+  SET_RESULT,
   STOP_GAME,
   CONNECT_ERROR,
-  WRONG_ANSWER
+  // WRONG_ANSWER
 } from '../types'
 
 const DeckState = props => {
@@ -75,8 +75,12 @@ const DeckState = props => {
   }
 
   // Choose answer
-  const chooseAnswer = () => {
-
+  const chooseAnswer = item => {
+    console.log(item)
+    dispatch({
+      type: SET_RESULT,
+      payload: item.target
+    })
   }
 
   return (
