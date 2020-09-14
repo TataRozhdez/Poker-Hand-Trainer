@@ -8,7 +8,6 @@ export const App = () => {
   const deckContext = useContext(DeckContext)
   const {
     loading,
-    loadCard,
     getCards,
     hand,
     getDeck,
@@ -16,6 +15,7 @@ export const App = () => {
     gameStarted,
     setResult,
     timer,
+    results,
     stopGame
   } = deckContext
 
@@ -34,8 +34,8 @@ export const App = () => {
         <MainContent
           loading={loading}
           gameStarted={gameStarted}
-          loadCard={loadCard}
           cards={cards}
+          results={results}
         />
         <Sidebar
           getCards={getCards}

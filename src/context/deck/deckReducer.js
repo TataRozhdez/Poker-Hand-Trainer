@@ -21,7 +21,8 @@ export default (state, action) => {
         ...state,
         gameStarted: true,
         cards: action.data.cards,
-        hand: action.payload
+        hand: action.payload,
+        timer: action.time
       }
     case STOP_GAME: 
       return {

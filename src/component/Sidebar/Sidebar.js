@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import playImg from '../../resources/img/play.png'
 import stopImg from '../../resources/img/stop.png'
+import wrongImg from '../../resources/img/wrong.png'
 import './Sidebar.scss'
 
 export const Sidebar = ({ getCards, timer, setResult, hand, loading, start, stopGame }) => {
   const [select, setSelect] = useState()
   useEffect(() => {
-    if (select === hand) {
-      console.log('Success selected')
-  
+    if (select === hand) {  
       const timeEnd = Date.now() - timer
+      
       setResult(timeEnd)
       setSelect()
     }
@@ -18,10 +18,6 @@ export const Sidebar = ({ getCards, timer, setResult, hand, loading, start, stop
 
   const handleChooseAnswer = (event) => {
     setSelect(event.target.id)
-  }
-
-  if (start && select && (select !== hand)) {
-    console.log('Wrong answer')
   }
 
   return (
@@ -92,6 +88,10 @@ export const Sidebar = ({ getCards, timer, setResult, hand, loading, start, stop
             >
               <img src={stopImg} alt='stop' />
             </button>
+
+            {
+              start && select && (select !== hand) && <img className='check' src={wrongImg} alt='Wrong' />
+            }
           </div>
         )
       }

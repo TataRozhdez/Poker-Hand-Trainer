@@ -4,14 +4,14 @@ import { FooterTable } from '../FooterTable/FooterTable'
 import { Card } from '../Card/Card'
 import { Loader } from '../Loader/Loader'
 
-export const MainContent = ({ loading, loadCard, cards, gameStarted }) => {
+export const MainContent = ({ loading, results, cards }) => {
   return (
     <div className='MainContent'>
       <div className='card-line'>
         {loading && <Loader />}
         { cards && <Card cards={cards} /> }
       </div>
-      <FooterTable />
+      <FooterTable results={results} />
     </div>
   )
 }

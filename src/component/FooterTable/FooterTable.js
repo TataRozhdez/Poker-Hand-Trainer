@@ -1,7 +1,8 @@
 import React from 'react'
 import './FooterTable.scss'
 
-export const FooterTable = () => {
+export const FooterTable = ({ results }) => {
+
   return (
     <div className='FooterTable'>
       <table className='table'>
@@ -12,14 +13,14 @@ export const FooterTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>j</td>
-            <td>j</td>
-          </tr>
-          <tr>
-            <td>j</td>
-            <td>j</td>
-          </tr>
+          {
+            results.map((i, index) => (
+              <tr key={index}>
+                <td>{i.packet}</td>
+                <td>{i.timelab} sec</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>

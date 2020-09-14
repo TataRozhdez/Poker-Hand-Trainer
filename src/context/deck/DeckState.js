@@ -21,15 +21,19 @@ const DeckState = props => {
     cards: null,
     timer: null,
     hand: null,
-    results: [],
-    error: null       // 8 shtuk
+    results: [
+      {
+        packet: '-',
+        timelab: '-'
+      }
+    ],
+    error: null       // 8 pieces
   }
 
   const [state, dispatch] = useReducer(deckReducer, initialState)
 
   // Timer
   const setTime = (time) => {
-    // console.log('constextTime', time);
     dispatch({
       type: TIMER,
       payload: time,
@@ -58,7 +62,7 @@ const DeckState = props => {
   // Get Cards
   const getCards = async () => {
     try {
-      setTime(Date.now())
+      const timeStart = Date.now()
 
       const res = await axios.get(
         `https://deckofcardsapi.com/api/deck/${state.deck}/draw/?count=5`
@@ -76,6 +80,7 @@ const DeckState = props => {
         type: GET_CARDS,
         payload: hand.name,
         data: res.data,
+        time: timeStart
       })
     } catch (error) {
       dispatch({
@@ -86,14 +91,42 @@ const DeckState = props => {
   }
 
   // Choose answer
-  const setResult = (i) => {
-    // i - time
+  const setResult = (time) => {
+    // const timeSec = time * 0.001
+    const timeSec =  Math.floor(time * 0.001 * 10) / 10
+  
+    const item = state.cards.map(k => {
+      let letter
+
+      if (k.code[1] === 'C') {
+        return letter + '\u2667'
+      }
+      if (k.code[1] === 'H') {
+        return letter + '\u2661'
+      }
+      if (k.code[1] === 'D') {
+        return letter + '\u2662'
+      }
+      if (k.code[1] === 'S') {
+        return letter + '\u2664'
+      }
+
+      if (k.code[0] === '0') {
+        letter = '10' + k.code.slice(1)
+      }
+
+      return letter
+    })
+    const itemString = item.join(', ')
+
     const res = {
-      packet: state.cards,
-      timelab: i
+      packet: itemString,
+      timelab: timeSec
     }
+
     getCards()
-    const results = [...state.results, res]
+
+    const results = [res, ...state.results]
     dispatch({
       type: SET_RESULT,
       payload: results
