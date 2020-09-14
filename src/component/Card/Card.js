@@ -7,7 +7,7 @@ export const Card = ({ cards }) => {
   return (
     <div className='random-card'>
       {
-        cards.cards.map(
+        cards.map(
           i => <Slide key={i.code} right cascade><img src={i.image} alt={i.code} /></Slide>
         )
       } 

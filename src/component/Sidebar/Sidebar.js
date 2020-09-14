@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import playImg from '../../resources/img/play.png'
 import stopImg from '../../resources/img/stop.png'
 import './Sidebar.scss'
 
-export const Sidebar = ({ getCards, loading, start, handleChooseAnswer, stopGame }) => {
+export const Sidebar = ({ getCards, timer, setResult, hand, loading, start, stopGame }) => {
+  const [select, setSelect] = useState()
+  useEffect(() => {
+    if (select === hand) {
+      console.log('Success selected')
+  
+      const timeEnd = Date.now() - timer
+      setResult(timeEnd)
+      setSelect()
+    }
+    // eslint-disable-next-line
+  }, [select])
+
+  const handleChooseAnswer = (event) => {
+    setSelect(event.target.id)
+  }
+
+  if (start && select && (select !== hand)) {
+    console.log('Wrong answer')
+  }
 
   return (
     <div className='Sidebar'>

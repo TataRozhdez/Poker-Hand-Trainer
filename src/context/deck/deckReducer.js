@@ -20,27 +20,30 @@ export default (state, action) => {
       return {
         ...state,
         gameStarted: true,
-        selected: null,
-        cards: action.payload,
+        cards: action.data.cards,
+        hand: action.payload
       }
     case STOP_GAME: 
       return {
         ...state,
         gameStarted: false,
         cards: null,
-        selected: null,
-        results: null
+        hand: null,
+        results: null,
+        timer: null
       }
     case SET_RESULT: 
       return {
         ...state,
         cards: null,
-        selected: action.payload
+        hand: null,
+        timer: null,
+        results: action.payload,
+        gameStarted: false
       }
     case TIMER:
       return {
         ...state,
-        // selected: null,
         timer: action.payload
       }
     case CONNECT_ERROR:
