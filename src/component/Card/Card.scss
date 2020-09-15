@@ -1,8 +1,14 @@
 .random-card {
-  margin: 0px 1.042vw 0px 0;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+
   img {
     width: 7.708vw;
     margin-right: 0.694vw;
+
+    @media (max-width: 426px) {
+      width: 11.765vw;
+    }
   }
   img:nth-child(2) {
     transition: 2s;
@@ -15,5 +21,9 @@
   }
   img:nth-child(5) {
     transition: 5s;
+  }
+  img:nth-child(6),
+  img:nth-child(7) {
+    transition: 6s;
   }
 }

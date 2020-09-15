@@ -13,5 +13,9 @@
     flex-direction: row;
     padding: 2.083vw;
     height: 50%;
+
+    @media (max-width: 426px) {
+      padding: 11.765vw;
+    }
   }
 }

@@ -17,6 +17,9 @@
     font-size: 2.1vw;
     margin-bottom: 0.694vw;
     cursor: default;
+    @media (max-width: 426px) {
+      margin-bottom: 2.353vw;
+    }
   }
   .btn-option {
     font-size: 1.736vw;
@@ -27,6 +30,12 @@
     color: #fff;
     outline: none;
     background: none;
+
+    @media (max-width: 426px) {
+      font-size: 2.824vw;
+      height: 7.059vw;
+      margin-bottom: 2.824vw;
+    }
   }
   .btn-option:hover {
     background-color: #681516;
@@ -51,12 +60,23 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      @media (max-width: 426px) {
+        width: 5.882vw;
+        height: 5.882vw;
+      }
+
       img {
         width: 1.042vw;
+        @media (max-width: 426px) {
+          width: 2.353vw;
+        }
       }
     }
     button:not(:last-child) {
       margin-right: 0.694vw;
+      @media (max-width: 426px) {
+        margin-right: 1.176vw;
+      }
     }
     button:disabled {
       background: #846969;

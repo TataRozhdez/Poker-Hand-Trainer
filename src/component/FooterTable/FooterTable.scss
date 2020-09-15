@@ -12,6 +12,10 @@
     tr {
       text-align: center;
       font-size: 1.389vw;
+
+      @media (max-width: 426px) {
+        font-size: 2.824vw;
+      }
     }
     th {
       color: #b9b7b7;
@@ -22,7 +26,11 @@
       border-bottom: 1px solid #b9b7b7;
       border-right: 1px solid #b9b7b7;
       width: 70%;
-      padding-top: 5px;
+      padding-top: 0.347vw;
+
+      @media (max-width: 426px) {
+        padding-top: 1.176vw;
+      }
     }
   }
 }

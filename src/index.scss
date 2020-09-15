@@ -39,4 +39,13 @@ a {
   font-size: 3.125vw;
   font-family: 'LexendPeta';
   text-shadow: 3px 1px 0px rgba(150, 150, 150, 1);
+
+  @media (max-width: 426px) {
+    font-size: 4.941vw;
+  }
+}
+.title:hover {
+  transition: all .5s ease;
+  transform: scale(1.05);
+  text-shadow: 7px 3px 3px #969696;
 }

@@ -62,14 +62,15 @@ const DeckState = props => {
   // Get Cards
   const getCards = async () => {
     try {
-      const timeStart = Date.now()
-
+      await axios.get(`https://deckofcardsapi.com/api/deck/${state.deck}/shuffle/
+      `)
       const res = await axios.get(
-        `https://deckofcardsapi.com/api/deck/${state.deck}/draw/?count=5`
+        `https://deckofcardsapi.com/api/deck/${state.deck}/draw/?count=7`
       )
       const cards = res.data.cards
+      const timeStart = Date.now()
+      const renderingHand = []
 
-      const renderingHand = [];
       cards.map((i) => renderingHand.push(i.code))
 
       const hand = Hand.solve(renderingHand)
@@ -96,26 +97,27 @@ const DeckState = props => {
     const timeSec =  Math.floor(time * 0.001 * 10) / 10
   
     const item = state.cards.map(k => {
-      let letter
-
-      if (k.code[1] === 'C') {
-        return letter + '\u2667'
-      }
-      if (k.code[1] === 'H') {
-        return letter + '\u2661'
-      }
-      if (k.code[1] === 'D') {
-        return letter + '\u2662'
-      }
-      if (k.code[1] === 'S') {
-        return letter + '\u2664'
-      }
+      let letterFirst
 
       if (k.code[0] === '0') {
-        letter = '10' + k.code.slice(1)
+        letterFirst = '10' 
+      } else {
+        letterFirst = k.code[0]
       }
 
-      return letter
+      if (k.code[1] === 'C') {
+        return letterFirst + '\u2663'
+      }
+      if (k.code[1] === 'H') {
+        return letterFirst + '\u2665'
+      }
+      if (k.code[1] === 'D') {
+        return letterFirst + '\u2666'
+      }
+      if (k.code[1] === 'S') {
+        return letterFirst + '\u2660'
+      }
+      return k.code
     })
     const itemString = item.join(', ')
 
@@ -136,13 +138,14 @@ const DeckState = props => {
   // Stop Game
   const stopGame = async () => {
     try {
-      const res = await axios.get(
-        `https://deckofcardsapi.com/api/deck/${state.deck}/shuffle/`
-      )
+      const results = [{
+        packet: '-',
+        timelab: '-'
+      }]
 
       dispatch({
         type: STOP_GAME,
-        payload: res.data,
+        results: results
       })
     } catch (error) {
       dispatch({

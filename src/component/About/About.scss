@@ -3,8 +3,20 @@
   height: 100vh;
   background: center / cover no-repeat url(../../resources/img/main.jpg);
   padding: 2.083vw;
-  h1 {
-    font-size: 3.125vw;
-    cursor: pointer;
+  text-align: center;
+  @media (max-width: 426px) {
+    padding: 7.059vw;
+  }
+  p {
+    font-size: 1.736vw;
+    padding-top: 2.083vw;
+    @media (max-width: 426px) {
+      font-size: 3.765vw;
+      padding-top: 7.059vw;
+    }
+  }
+  .social-link {
+    text-decoration: underline;
+    color: #fff;
   }
 }

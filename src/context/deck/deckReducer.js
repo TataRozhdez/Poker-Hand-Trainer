@@ -30,7 +30,7 @@ export default (state, action) => {
         gameStarted: false,
         cards: null,
         hand: null,
-        results: null,
+        results: action.results,
         timer: null
       }
     case SET_RESULT: 
