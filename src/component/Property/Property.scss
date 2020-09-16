@@ -1,0 +1,33 @@
+.Property {
+  background-color: rgba(0, 0, 0, 0.65);
+  transition: background-color 3s ease;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .property-txt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #21973F;
+    font-size: 1.736vw;
+    width: 30%;
+    height: 30%;
+    position: relative;
+
+    @media (max-width: 426px) {
+      font-size: 2.588vw;
+    }
+    span {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      font-weight: bold;
+    }
+  }
+}

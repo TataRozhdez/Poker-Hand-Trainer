@@ -28,7 +28,10 @@ export default (state, action) => {
         ...state,
         gameStarted: false,
         cards: null,
-        hand: null,
+        hand: {
+          name: '',
+          descr: ''
+        },
         results: action.results,
         timer: null
       }
@@ -36,7 +39,10 @@ export default (state, action) => {
       return {
         ...state,
         cards: null,
-        hand: null,
+        hand: {
+          name: '',
+          descr: ''
+        },
         timer: null,
         results: action.payload,
         gameStarted: false

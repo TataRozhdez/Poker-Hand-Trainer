@@ -19,14 +19,17 @@ const DeckState = props => {
     gameStarted: false,
     cards: null,
     timer: null,
-    hand: null,
+    hand: {
+      name: '',
+      descr: ''
+    },
     results: [
       {
         packet: '-',
         timelab: '-'
       }
     ],
-    error: null       // 8 pieces
+    error: null       
   }
 
   const [state, dispatch] = useReducer(deckReducer, initialState)
@@ -71,17 +74,21 @@ const DeckState = props => {
       const renderingHand = []
 
       cards.map(i => (
-        renderingHand.push(i.code[0].startsWith('0')? i.code.replace('0', 'T') : i.code)
+        renderingHand.push(i.code.startsWith('0') ? i.code.replace('0', 'T') : i.code)
       ))
 
-      const hand = Hand.solve(renderingHand)
+      const handReq = Hand.solve(renderingHand)
+
+      const hand = {
+        name: handReq.name,
+        descr: handReq.toString()
+      }
 
       console.log('Hand:', hand.name)
-      console.log('descr', hand.toString())
 
       dispatch({
         type: GET_CARDS,
-        payload: hand.name,
+        payload: hand,
         data: res.data,
         time: timeStart
       })
@@ -95,36 +102,13 @@ const DeckState = props => {
 
   // Choose answer
   const setResult = (time) => {
-    // const timeSec = time * 0.001
     const timeSec =  Math.floor(time * 0.001 * 10) / 10
-  
-    const item = state.cards.map(k => {
-      let letterFirst
 
-      if (k.code[0] === '0') {
-        letterFirst = '10' 
-      } else {
-        letterFirst = k.code[0]
-      }
-
-      if (k.code[1] === 'C') {
-        return letterFirst + '\u2663'
-      }
-      if (k.code[1] === 'H') {
-        return letterFirst + '\u2665'
-      }
-      if (k.code[1] === 'D') {
-        return letterFirst + '\u2666'
-      }
-      if (k.code[1] === 'S') {
-        return letterFirst + '\u2660'
-      }
-      return k.code
-    })
-    const itemString = item.join(', ')
+    const item = state.hand.descr
+    let newItem = item.replace(/c/g, '\u2663').replace(/h/g, '\u2665').replace(/d/g, '\u2666').replace(/s/g, '\u2660')
 
     const res = {
-      packet: itemString,
+      packet: newItem,
       timelab: timeSec
     }
 

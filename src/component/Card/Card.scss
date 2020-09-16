@@ -19,11 +19,9 @@
   img:nth-child(4) {
     transition: 4s;
   }
-  img:nth-child(5) {
-    transition: 5s;
-  }
+  img:nth-child(5),
   img:nth-child(6),
   img:nth-child(7) {
-    transition: 6s;
+    transition: 5s;
   }
 }

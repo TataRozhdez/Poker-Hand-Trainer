@@ -15,6 +15,12 @@
   div {
     display: flex;
 
+    .btn-property {
+      border: none;
+      background: none;
+      outline: none;
+    }
+
     img, .info {
       width: 2.083vw;
       height: 2.083vw;

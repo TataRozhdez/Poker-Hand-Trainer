@@ -24,9 +24,6 @@ export const App = () => {
     // eslint-disable-next-line
   }, [])
 
-
-    console.log('state', deckContext)
-
   return (
     <div>
       <Navbar />
@@ -41,7 +38,7 @@ export const App = () => {
           getCards={getCards}
           loading={loading}
           start={gameStarted}
-          hand={hand}
+          hand={hand.name}
           timer={timer}
           stopGame={stopGame}
           setResult={setResult}
