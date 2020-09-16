@@ -4,8 +4,7 @@ import {
   SET_RESULT,
   STOP_GAME,
   CONNECT_ERROR,
-  TIMER,
-  // WRONG_ANSWER
+  TIMER
 } from '../types'
 
 export default (state, action) => {

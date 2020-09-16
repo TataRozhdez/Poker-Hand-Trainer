@@ -9,8 +9,7 @@ import {
   SET_RESULT,
   STOP_GAME,
   CONNECT_ERROR,
-  TIMER,
-  // WRONG_ANSWER
+  TIMER
 } from '../types'
 
 const DeckState = props => {
@@ -71,11 +70,14 @@ const DeckState = props => {
       const timeStart = Date.now()
       const renderingHand = []
 
-      cards.map((i) => renderingHand.push(i.code))
+      cards.map(i => (
+        renderingHand.push(i.code[0].startsWith('0')? i.code.replace('0', 'T') : i.code)
+      ))
 
       const hand = Hand.solve(renderingHand)
 
       console.log('Hand:', hand.name)
+      console.log('descr', hand.toString())
 
       dispatch({
         type: GET_CARDS,

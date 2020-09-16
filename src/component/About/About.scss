@@ -7,16 +7,20 @@
   @media (max-width: 426px) {
     padding: 7.059vw;
   }
-  p {
-    font-size: 1.736vw;
-    padding-top: 2.083vw;
-    @media (max-width: 426px) {
-      font-size: 3.765vw;
-      padding-top: 7.059vw;
-    }
-  }
   .social-link {
     text-decoration: underline;
     color: #fff;
+  }
+  .about-txt {
+    text-align: left;
+
+    p {
+      font-size: 1.736vw;
+      padding-top: 2.083vw;
+      @media (max-width: 426px) {
+        font-size: 3.765vw;
+        padding-top: 7.059vw;
+      }
+    }
   }
 }
